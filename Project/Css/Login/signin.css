@@ -111,15 +111,6 @@ body{
     border-radius:5px;
     padding:6px 12px 7px;
 }
-.password-div{
-    display: flex;
-    justify-content: space-between;
-    height: 10px 10px;
-}
-.password-div_item2{
-    margin-top: 18px;
-    margin-bottom: 10px;
-}
 #eye {
     border-left: .2px solid var(--left-border-clr);
     position:relative;
@@ -135,10 +126,10 @@ body{
     width:15px;
     
 }
-.forgot-password_link{
+/* .forgot-password_link{
     font-size:12px;
     padding-left: 0px;
-}
+} */
 .link{
     color:var(--link-clr);
     text-decoration: none;
@@ -160,6 +151,15 @@ body{
 .btn:hover {
     background-color:var(--green-hover-clr);
     border-color:var(--green-hover-clr)
+}
+.links{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding-bottom: 6px;
+}
+#remember_me {
+    cursor:pointer;
 }
 .create-account_question{
     font-size: 12px;
