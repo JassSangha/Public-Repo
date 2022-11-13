@@ -14,7 +14,7 @@
             <div class="tagline">Welcome to Binance</div>
         </div>
     
-        <form class="login-form">
+        <form class="login-form" name="login_form">
             <div>
                 <label for="username" class="form-label">Email or Phone</label>    
                 <input type="text" id="username" name="username" class="form-input" placeholder="Email or Phone">
@@ -28,23 +28,20 @@
             <label for="userotp" class="form-label">Otp</label>
                 <div class="otp-div">
                     <input class="form-input" type="number" id="userotp" name="userotp" placeholder="Enter the Otp">
-                    <button type="button" onclick="countdown()" name="otpbtn" id="otp-btn" class="text-center text-white">Send Otp</button>  
-                </div>
-                <div class="timeout-text">
-                    <span id="message" class="footer-item"></span>
-                    <span class="counter"><span id="timer"></span></span>
-                    <!-- <span class="counter-minute" id="minute">00</span>:<span class="counter-second" id="second">00</span> -->
+                    <button type="button" name="otpbtn" id="otp-btn" class="text-center text-white">Send Otp</button>  
                 </div>
             </div>
+            <span class="footer-item" id="second"></span>
 
-
-        
     </form>
+    
     <form class="login-form2">
     <button class="btn text-center text-white">Next
     </button>  
     </form>
-        
+    
+    <span id="message"></span>
+    
     </div>    
     <script src="../../Js/signup.js"></script>
 </body>

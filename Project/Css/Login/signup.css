@@ -193,26 +193,15 @@ body{
     font-size: 11px; 
     padding: 2px 2px;
 }
-.footer-item{
-    font-size:11px ;
-    margin-left: 25px;
-}
-.timeout-text{
-    position:relative;
-}
-.counter-minute{
+/* .counter{ */
+    /* font-size:11px ; */
     /* position:absolute; */
-    right:48px;
-    z-index:2;
-    top:-27px;    
-} 
-.counter-second{
-    /* position:absolute; */
-    right:28px;
+    /* right:28px; */
     /* z-index:2; */
-    top:-27px;    
-} 
-#timer{
+    /* top:-27px;     */
+/* }  */
+#message{
     font-size:16px;
-    color:#f0f0f0
+    color:#f0f0f0;
+    padding-bottom: 17px;
 }
