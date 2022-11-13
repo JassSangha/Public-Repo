@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binance</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binance</title>
 </head>
 <body>
-    <form name="form_main">
-        <div>
-          <span id="minute">00</span>:<span id="second">00</span>
-        </div>      
-        <button type="button" name="start">start</button>
-    </form>
-    
+  <form name="form_main">
+    <div>
+      00:<span id="second">00</span>
+      <button type="button" name="start">start</button>
+    </div>      
+  </form>    
 
-    <script>
-    // let minute = 0;
-    let second = 05;
-    let millisecond = 0;
-    let cron;
+  <script>
+  let second = 5;
+  let millisecond = 0;
+  let cron;
+
+  document.form_main.start.onclick = () => start();
   
-    document.form_main.start.onclick = () => start();
-    
-    function start() {
-      cron = setInterval(() => { timer(); }, 10);
+  function start() {
+    cron = setInterval(() => { timer(); }, 10);
+  }
+  
+  function timer() {
+    if ((millisecond += 10) == 1000) {
+      millisecond = 0;
+      second--;
     }
-    function timer() {
-      if ((millisecond += 10) == 1000) {
-        millisecond = 0;
-        second--;
-      }
-      if (second == 0) {
-        second = 0;
-        clearInterval(cron);
-      }
-       document.getElementById('second').innerText = returnData(second);
-      }
+    if (second == 0) {
+      clearInterval(cron);
+      second = 5;
+        document.querySelector('#otp-btn').textContent = "";
+      // document.getElementById('second').innerHTML = "";
+    }
+      document.getElementById('second').innerText = returnData(second);
+    }
+    function returnData(input) {
+      return input > 10 ? input : `0${input}`
+    }
 
 
-      function returnData(input) {
-        return input > 10 ? input : `0${input}`
-      }
-    
-    // function timer() {
-    //   if ((millisecond += 10) == 1000) {
-    //     millisecond = 0;
-    //     second--;
-    //   }
-    //   if (second == 0 && minute == 0) {
-    //     second=0
-    //     console.log('jassa');
-    //     clearInterval(cron);
-    //   }
-    //   if (second == 0) {
-    //       minute = 0;
-    //       second = 5;
-    //   }
-    //     document.getElementById('minute').innerText = returnData(minute);
-    //     document.getElementById('second').innerText = returnData(second);
-    //   }
-    //   function returnData(input) {
-    //     return input > 10 ? input : `0${input}`
-    //   }
+  // function timer() {
+  //   if ((millisecond += 10) == 1000) {
+  //     millisecond = 0;
+  //     second--;
+  //   }
+  //   if (second == 0 && minute == 0) {
+  //     second=0
+  //     console.log('jassa');
+  //     clearInterval(cron);
+  //   }
+  //   if (second == 0) {
+  //       minute = 0;
+  //       second = 5;
+  //   }
+  //     document.getElementById('minute').innerText = returnData(minute);
+  //     document.getElementById('second').innerText = returnData(second);
+  //   }
+  //   function returnData(input) {
+  //     return input > 10 ? input : `0${input}`
+  //   }
 
-    </script>
+  </script>
 </body>
 </html>
