@@ -22,6 +22,7 @@ function togglepassword() {
 let second = 5;
 let millisecond = 0;
 let cron;
+
 document.login_form.otpbtn.onclick = () => start();
   
 function start() {
@@ -36,18 +37,17 @@ function timer() {
     document.getElementById('second').innerText = returnData(second);
     document.querySelector('#otp-btn').textContent = "";
     document.querySelector('#otp-btn').disabled = true;
-    // document.querySelector('#message').textContent = 
-    //   "Otp has been sent to your mobile or email";
+    document.querySelector('#message').textContent = 
+      "Otp has been sent to your mobile or email";
   }
   if (second == 0) {
-    document.querySelector('#second').textContent = "";
+    document.querySelector('#otp-btn').disabled = false;
+    document.querySelector('#message').textContent = "";
     clearInterval(cron);
     second = 5;
-    document.getElementById("timer").innerHTML = "";
+    document.querySelector('#second').textContent = "";
     document.querySelector('#otp-btn').textContent = "Resend Otp";
-    document.querySelector('#otp-btn').disabled = false;
-    // document.querySelector('#message').textContent = 
-    //   "";
+    document.getElementById("timer").innerHTML = "";
   }
   function returnData(input) {
     return input > 10 ? input : `0${input}`
