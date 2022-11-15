@@ -2,9 +2,9 @@ import cv2
 import qrcode
 
 img = qrcode.make("https://www.youtube.com/watch?v=ZhnJ1bkIWWk")
-img.save("bitcoin.jpg")
-img = qrcode.make("Baby yoda ate 20 biscuits today")
-img.save("yoda.jpg")
+img.save("yt.jpg")
+img = qrcode.make("Jassa Jatt")
+img.save("jassa.jpg")
 
 
 d = cv2.QRCodeDetector()
