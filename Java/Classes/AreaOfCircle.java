@@ -1,8 +1,6 @@
-import java.io.*;
+// import java.io.*;
 
 class AOC {
-    // static double PI = Math.PI;
-
     static final double PI = Math.PI;
 
     AOC(double r) {
@@ -18,9 +16,9 @@ class AOC {
 
 class AreaOfCircle {
     public static void main(String[] args) {
-        AOC obj = new AOC();
+        AOC obj = new AOC(5.4);
 
-        obj.AOC(5);
-        obj.AOC(2.5);
+        // obj.AOC(5);
+        // obj.AOC(2.5);
     }
 }
