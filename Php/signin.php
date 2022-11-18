@@ -1,6 +1,7 @@
 <?php 
-    $username = $_POST['username'];
-    $userpassword = $_POST['userpassword'];
+
+$username = $_POST['username'];
+$userpassword = $_POST['userpassword'];
 
    $con = new mysqli("localhost","root","","test");
    if($con->connect_error){
