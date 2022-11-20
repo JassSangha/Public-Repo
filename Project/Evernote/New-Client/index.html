@@ -1,0 +1,134 @@
+<!-- New-Client -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mb-50">
+        <div class="main">
+            <div class="card">
+                <div class="mobile-device">
+                    <div class="heading">
+                        <div class="logo">
+                            <img src="../assets/logo.png" style="height: 100px;">
+                        </div>
+                        <p class="tagline">New-Client Form</p>
+                    </div>
+
+                    <div class="login-form grid-container">
+                        <div class="grid-item1">
+                        <form action="#">                            
+                                <div class="form-heading text-center">Applicant Info</div>
+
+                            <div class="user-data">
+                                <div class="title">Applicant Name:</div>
+                                <input type="text" class="form__input mb-8" name="applicant-Name" id="applicant-Name"
+                                    placeholder="Name">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">Guardian Name:</div>
+                                <input type="text" class="form__input mb-8" name="muardian-Name" id="guardian-Name"
+                                    placeholder="Name">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">Mobile no:</div>
+                                <input type="number" class="form__input mb-8" name="mobile-no" id="mobile-no"
+                                    placeholder="Phone">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">Home Addr:</div>
+                                <input type="text" class="form__input mb-8" name="home-addr" id="home-addr"
+                                    placeholder="Address">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">Emi-Pickup Addr:</div>
+                                <input type="text" class="form__input mb-8" name="emi-pickup-addr" id="emi-pickup-addr"
+                                    placeholder="Address">
+                            </div>
+
+                            <div class="title">Location:</div>
+                            <div class="loc-div">
+                                <p id="demo"></p>
+
+                                <button onclick="getLocation()" class="loc-button btn-submit button_blue border-none text-white mb-8">
+                                    Location
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="grid-item2">
+                    <form action="#">
+
+                        
+                        <div class="form-heading text-center">Guarantor Info</div>
+                            <div class="user-data">
+                                <div class="title">Gaurantor Name:</div>
+                                <input type="text" class="form__input mb-8" name="applicant-Name" id="applicant-Name"
+                                placeholder="Name">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">Guardian Name:</div>
+                                <input type="text" class="form__input mb-8" name="muardian-Name" id="guardian-Name"
+                                    placeholder="Name">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">Mobile no:</div>
+                                <input type="number" class="form__input mb-8" name="mobile-no" id="mobile-no"
+                                    placeholder="Phone">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">Home Addr:</div>
+                                <input type="text" class="form__input mb-8" name="home-addr" id="home-addr"
+                                    placeholder="Address">
+                            </div>
+                            <div class="user-data">
+                                <div class="title">:</div>
+                                <input type="text" class="form__input mb-8" name="home-addr" id="home-addr" placeholder="Address">
+                            </div>
+                            
+                            <div class="title">Location:</div>
+                            <div class="loc-div">
+                                <p id="demo"></p>
+                                
+                                <button onclick="getLocation()" class="loc-button btn-submit button_blue border-none text-white mb-8">
+                                    Location
+                                </button>
+                            </div>
+                            <p id="demo"></p>
+                        </div>
+                    </form>
+                    <hr class="hr-text" data-content="or">
+                  
+                            <button class="button btn-submit button_green border-none text-white mb-8">
+                                Continue
+                            </button>
+                            <div class="blank_space"></div>
+                            <div class="remember-me text-center mb-8">
+                                <input type="checkbox" name="remember_me" id="remember_me"> <label
+                                    for="remember_me">Remember me on this device.</label>
+                            </div>
+                            <div class="blank_space"></div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-wrapper text-center pb-20">
+                <a href="#" class="footer-item border-r">Terms of Service</a>
+                <a href="#" class="footer-item">Privacy Policy</a><br>
+                <span class="footer-item footer-item2">Copyright @2020 Jass-Sangha. All rights reserved.</span>
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+
+</body>
+
+</html>
