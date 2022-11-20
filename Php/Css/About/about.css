@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: cadetblue;
+}
+
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url(1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+#logo {
+    width: 75px;
+    cursor: pointer;
+    background: transparent;
+    margin: 2% 0% 2% 2%;
+}
+
+.list {
+    padding-top: 30px;
+    padding-left: 50px;
+    color: rgb(245, 245, 245);
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: rgb(245, 245, 245);
+}
+
+.content h1 {
+    background-clip: border-box;
+    /* font-size: 70px; */
+    margin-top: 80px;
+    padding-left: 30px;
+}
+
+.content p {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+
+}
+
+hr {
+    border: 1px solid;
+    border-color: rgb(255, 244, 229);
+
+}
+
+hr2:nth-child(2) {
+    margin-top: 100px;
+}
