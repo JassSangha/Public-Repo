@@ -1,4 +1,0 @@
-c++
-poops and oops
-inheritance
-files
