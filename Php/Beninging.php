@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>In The Beninging</title>
+    <title>Beninging</title>
     <style>
     * {
         margin: 0;
@@ -75,7 +75,7 @@
         }
         // ? Array
         $arr = array(1, "Jassa", "Mussu");
-        echo "<br>" . $arr[1];
+        echo $arr[1];
         $count = count($arr);
         echo "<br>" . $count;
         echo "<br>";
@@ -114,7 +114,7 @@
         }
         class Shoes extends Shop
         {
-            public $shoebrands = array("Nike", "Puma", "Woodland", "Adidas", "Reebok");
+            public $shoebrands = array("Nike", "Puma", "Woodland", "Addidas", "Reebok");
             function display_shoes()
             {
                 echo "<br><b>Shoe Brand Available: </b>";
@@ -125,7 +125,7 @@
         }
         class Sandals extends Shoes
         {
-            public $sandalbrands = array("Bata", "RedWood", "Liberty", "Metro", "Asian");
+            public $sandalbrands = array("Bata", "Redwood", "Liberty", "Metro", "Asian");
             function display_sandals()
             {
                 echo "<br><b>Sandal Brand Available: </b>";
@@ -148,12 +148,39 @@
             exit();
         }
 
+        // connecting Database
+        define('DB_SERVER', 'localhost');
+        define('DB_USERNAME', 'root');
+        define('DB_PASSWORD', '');
+        define('DB_DATABASE', 'project-jassa');
+        $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        // echo "Connected successfully<br>";
+
+        $sql = "SELECT UserName FROM users";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo $row["UserName"] . "<br>";
+                // echo $row["Id"] . " - " . $row["UserName"] . " - " . $row["UserPassword"] . "<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+
         ?>
+
         <form action="<?php $_PHP_SELF ?>" method="POST">
             Username:<input type="text" name="username" />
             Password:<input type="password" name="userpassword" /><br>
             <input type="submit" />
         </form>
+
     </center>
 </body>
 
