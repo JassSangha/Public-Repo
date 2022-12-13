@@ -19,6 +19,11 @@
         gap: 10px;
         /* border: 1px dashed purple; */
     }
+
+    .error {
+        color: coral;
+        font-size: 12px;
+    }
     </style>
 </head>
 
@@ -149,29 +154,29 @@
         }
 
         // connecting Database
-        define('DB_SERVER', 'localhost');
-        define('DB_USERNAME', 'root');
-        define('DB_PASSWORD', '');
-        define('DB_DATABASE', 'project-jassa');
-        $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+        // define('DB_SERVER', 'localhost');
+        // define('DB_USERNAME', 'root');
+        // define('DB_PASSWORD', '');
+        // define('DB_DATABASE', 'project-jassa');
+        // $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        // echo "Connected successfully<br>";
+        // if ($conn->connect_error) {
+        //     die("Connection failed: " . $conn->connect_error);
+        // }
+        // // echo "Connected successfully<br>";
 
-        $sql = "SELECT UserName FROM users";
-        $result = $conn->query($sql);
+        // $sql = "SELECT UserName FROM users";
+        // $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo $row["UserName"] . "<br>";
-                // echo $row["Id"] . " - " . $row["UserName"] . " - " . $row["UserPassword"] . "<br>";
-            }
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
+        // if ($result->num_rows > 0) {
+        //     while ($row = $result->fetch_assoc()) {
+        //         echo $row["UserName"] . "<br>";
+        //         // echo $row["Id"] . " - " . $row["UserName"] . " - " . $row["UserPassword"] . "<br>";
+        //     }
+        // } else {
+        //     echo "0 results";
+        // }
+        // $conn->close();
 
         ?>
 
@@ -180,7 +185,58 @@
             Password:<input type="password" name="userpassword" /><br>
             <input type="submit" />
         </form>
-
+        <hr>
+        <?php
+        $nameErr = $emailErr = $mobileErr = "";
+        $name = $email = $mobile = "";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = test_input($_POST["name"]);
+            $email = test_input($_POST["email"]);
+            $mobile = test_input($_POST["mobile"]);
+        }
+        function test_input($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty($_POST["name"])) {
+                $nameErr = "Required!";
+            } else {
+                $name = test_input($_POST["name"]);
+                if (!preg_match("/^[a-zA-Z-]*$/", $name)) {
+                    $nameErr = "Characters allowed a-z,A-Z,-,.,_.";
+                }
+            }
+            if (empty($_POST["email"])) {
+                $emailErr = "Required!";
+            } else {
+                $email = test_input($_POST["email"]);
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "Not Valid!";
+                }
+            }
+            if (empty($_POST["mobile"])) {
+                $mobileErr = "Required!";
+            } else {
+                $mobileErr = "Good!";
+            }
+        }
+        ?>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            Name:<input type="text" name="name" />
+            <span class="error"><?php echo $nameErr; ?></span><br>
+            Email:<input type="text" name="email" />
+            <span class="error"><?php echo $emailErr; ?></span><br>
+            Mobile:<input type="text" name="mobile" />
+            <span class="error"><?php echo $mobileErr; ?></span><br>
+            <input type="submit" name="submit" value="Click Kro" />
+        </form>
+        <?php
+        echo "$name $email $mobile";
+        ?>
     </center>
 </body>
 
