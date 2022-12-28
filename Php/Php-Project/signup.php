@@ -1,0 +1,100 @@
+    <?php
+    include "../conn.php";
+
+    //! Form Validation
+    $usernameerror = "";
+    $username = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = test_input($_POST["username"]);
+    }
+    function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //     if (empty($_POST["username"])) {
+    //         $usernameerror = "Required!";
+    //     } else {
+    //         $username = test_input($_POST["username"]);
+    //         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //             $usernameerror = "Not Valid!";
+    //         }
+    //     }
+    // }
+    // * Database Related
+    if (isset($_POST['submit'])) {
+        $email = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql = "INSERT INTO `signup/login` (`id`, `username`,`password`) VALUES (NULL,'$username','$password')";
+
+        $result = $conn->query($sql);
+        echo "<br>";
+        if ($result == TRUE) {
+            echo "Signup Complete";
+        } else {
+            echo "Error:" . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+    }
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Binance</title>
+        <link rel="stylesheet" href="Css/Login/signup.css">
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="header text-center">
+                <a href="login.html"><img src="Images/small_logo.png"></a>
+                <div class="tagline">Welcome to Binance</div>
+            </div>
+
+            <form class="login-form" name="login_form">
+                <div>
+                    <label for="username" class="form-label">Email or Phone</label>
+                    <input type="text" id="username" name="username" class="form-input" placeholder="Email or Phone">
+
+                    <label for="userpassword" class="form-label">Password</label>
+                    <div class="password-div">
+                        <input type="password" class="form-input" name="password" id="userpassword"
+                            placeholder="New Password">
+                        <button type="button" id="eye" onclick="togglepassword()">&nbsp<img class="img"
+                                src="Images/small_logo.png" alt=""></button>
+                    </div>
+
+                    <label for="userotp" class="form-label">Otp</label>
+                    <div class="otp-div">
+                        <input class="form-input" type="number" id="userotp" name="userotp" placeholder="Enter the Otp">
+                        <button type="button" name="otpbtn" id="otp-btn" class="text-center text-white">Send
+                            Otp</button>
+                    </div>
+                </div>
+                <span class="footer-item counter" id="second"></span>
+            </form>
+
+            <form class="login-form2">
+                <button id="submit" type="submit" name="submit" class="btn text-center text-white">Next</button>
+            </form>
+            <span role="alert" id="message" aria-hidden="true" style="display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    font-size:12px;
+                    color:black;" id="message">
+            </span>
+        </div>
+        <script src="Js/signup.js"></script>
+
+
+    </body>
+
+    </html>
