@@ -13,6 +13,7 @@
     --border-clr: #d8dee4;
     --text-clr: #24292f;
     --input-bg-clr: #fff;
+    --input-error-bg-clr:#ff2d2629;
     --input-clr: rgb(70, 70, 70);
     --green-clr: #00a82d;
     --green-hover-clr: #008f26;
@@ -27,6 +28,7 @@
     --border-clr: #21262d;
     --text-clr: #dddddd;
     --input-bg-clr: #161b22;
+    --input-error-bg-clr:#ff2d2629;
     --input-clr: rgb(223, 223, 223);
     --otp-btn: #636d92;
 }
@@ -130,6 +132,9 @@ body {
     border: 1px solid var(--border-clr);
     border-radius: 5px;
     padding: 6px 12px 7px;
+}
+.form-input-error {
+    background-color: var(--input-error-bg-clr);
 }
 
 .password-div {

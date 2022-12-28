@@ -64,16 +64,16 @@
         if (validateOnlyNumbers(value)) {
             if (value.length === 10 || value.length === 13) {
                 // h1.textContent = "Valid"
-                input.classList.remove('errorinput')
+                input.classList.remove('form-input-error')
             } else if (value.length >= 3) {
                 // h1.textContent = "Not Valid"
-                input.classList.add('errorinput')
+                input.classList.add('form-input-error')
             }
         } else {
             if (validateEmail(value)) {
-                input.classList.remove('errorinput')
+                input.classList.remove('form-input-error')
             } else if (value.length >= 3) {
-                input.classList.add('errorinput')
+                input.classList.add('form-input-error')
             }
         }
     })

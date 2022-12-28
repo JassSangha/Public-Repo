@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="Css/Login/login.css">
+    <link rel="stylesheet" href="Css\Login\login.css">
 </head>
 
 <body>
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     </div>
     <!-- <div><?php echo $error; ?></div> -->
-    <script src="../../Js/sigin.js"></script>
+    <script src="Js/login.js"></script>
 </body>
 
 </html>
