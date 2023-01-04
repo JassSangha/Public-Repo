@@ -16,7 +16,8 @@
     --input-clr:rgb(70, 70, 70);
     --green-clr:#00a82d;
     --green-hover-clr:#008f26;
-    --link-clr:#0969da;
+    --blue-clr:#005fcb;
+    --blue-hover-clr:#0052af;
     --left-border-clr:rgba(221, 221, 221, 0.555);
 }
 .dark-theme{
@@ -36,6 +37,14 @@
 .green-text {
     color: var(--green-clr);
     text-decoration:none;
+}
+.blue-text{
+    color:var(--blue-clr);
+    text-decoration: none;
+}
+.blue-text:hover{
+    color:var(--blue-hover-clr);
+    text-decoration: none;
 }
 .green-text:hover {
     color: var(--green-hover-clr);
@@ -94,8 +103,8 @@ body{
     background-color: var(--login-form-bg-clr); 
     border:1px var(--border-clr) solid;
     border-radius: 6px;
-    padding: 0px 20px 20px 20px;
-    margin: 16px auto 16px auto;
+    padding: 20px 20px 20px 20px;
+    margin: 20px auto 20px auto;
 }
 .form-input{
     width:100%;
@@ -105,50 +114,52 @@ body{
     border:1px solid var(--border-clr);
     border-radius:5px;
     padding:6px 12px 7px;
+    margin: 0 0 20px 0;
 }
 .form-label{
-    /* position:absolute;
-    top:15px;
-    left:15px;
-    color:#008f26;
+    position:absolute; 
     text-transform: capitalize;
-    font-size:18px;
-    transition: top .3s;
-    padding: 0 5px; */
-    /* color:var(--text-clr);
-    display: block;
-    margin-bottom: 8px;
     font-size:14px;
-    padding-top: 16px; */
+    transition: top .3s;
+    color:var(--text-clr);
+    display: block;
+    cursor:text;
+    padding:6px 9px; 
 }
-.login-form:focus ~ label{
-    /* top:-9px;
-    background-color: var(--login-form-bg-clr); */
+.input-box label{
+    position:absolute; 
+    margin-top: -52px;
+    transition:.1s cubic-bezier(0.215, 0.610, 0.355, 1) ;
+}
+.login-form input:valid ~ label,
+.login-form input:focus ~ label{
+    transform: translateX(5px) translateY(-9px);
+    letter-spacing:.1em;
+    padding:0 4px;
+    font-size:0.65rem;
+    background-color: var(--login-form-bg-clr);
 }
 .form-input-error{
     background-color: var(--input-error-bg-clr);
 }
 #eye {
     border-left: .2px solid var(--left-border-clr);
-    position:relative;
-    top:-26px;
+    position:absolute;
     margin-left:231px; 
+    margin-top: 59px;
     cursor:pointer;
     border-top:none;
     border-right:none;
     border-bottom:none;
+    z-index: 2;
     background: transparent;
 }
 .password-hider-img{
     width:15px;
-    
 }
-.link{
-    color:var(--link-clr);
-    text-decoration: none;
-}
+
 .link:hover{
-    color:#0e71af;
+    color:#165e8b;
 }
 .btn {
     cursor:pointer;
@@ -156,7 +167,6 @@ body{
     height:42px;
     font-size: 16px;
     border:none;
-    margin-top:8px;
     border-radius: 5px;
     background-color: var(--green-clr);
     border-color: var(--green-clr);
@@ -169,16 +179,17 @@ body{
     display: flex;
     justify-content: space-between;
     font-size: 12px;
-    padding-bottom: 6px;
+    padding-bottom: 14px;
 }
 #remember_me {
     cursor:pointer;
+    letter-spacing: .1em;
 }
-.create-account_question{
+.questions{
     font-size: 12px;
     color:var(--text-clr)
 }
-.create-account_link{
+.questions-link{
     font-size:14px;
 }
 .login-form2{
@@ -213,7 +224,7 @@ body{
 .img{
     width:15px;
 }
-#dark-theme-btn {
+/* #dark-theme-btn {
     position:fixed;
     right:0px;
     bottom:0px;
@@ -221,16 +232,4 @@ body{
     cursor:pointer;
     border:none;
     background: transparent;
-}
-/* if (device-theme == dark):
-        .body{background : #161b22 }
-        .tagline{color : #f0f6fc}
-        .form-label{color : #f0f6fc}
-        .form-input{color : #f0f6fc}
-        .forgot-password_question{color : #f0f6fc}
-        .forgot-password_link{color : #f0f6fc}
-        .login-form{background : #161b22}
-        .login-form{border-color : #21262d}
-        .login-form2{border-color : #21262d}
-        */
-        
+} */

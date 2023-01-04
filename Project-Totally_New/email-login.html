@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<?php
+include("../conn.php");
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $myusername = mysqli_real_escape_string($db, $_POST['username']);
+    $mypassword = mysqli_real_escape_string($db, $_POST['userpassword']);
+
+    $sql = "SELECT * FROM users WHERE username = '$myusername' and  userpassword = '$mypassword'";
+    $result = mysqli_query($db, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    //   $active = $row[0]['id'];
+    if (!$result) {
+        printf("Error: %s\n", mysqli_error($db));
+        exit();
+    }
+    $count = mysqli_num_rows($result);
+
+    if ($count == 1) {
+        if ($myusername == $username and $mypassword == 'password') {
+            header("location: home.php");
+        } else {
+            $error = "Your Login Name or Password is invalid";
+        }
+    }
+}
+?>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="header text-center">
+            <img src="small_logo.png">
+            <div class="flex  justify-center">
+                <div class="tagline">Login</div>
+                <div class="tagline-or">or</div> 
+                <div class="tagline">Signup</div>
+        </div>
+        
+        <form action="" method="post" class="login-form grid">
+            <div class="login-google">
+                <button type='button' class="app-login-btn flex center justify-center">
+                    <img src="google.svg" alt="google">
+                    <div class="pl-6">
+                        &nbspContinue with Google
+                    </div>
+                </button>
+            </div>
+            <div class="login-apple">
+                <button type="button" class="app-login-btn flex center justify-center">
+                    <img src="apple.svg" alt="apple">
+                    <div class="pl-6">
+                        &nbspContinue with Apple
+                    </div>
+                </button>
+            </div>
+            <hr class="hr-text" data-content="or">
+            <div class="input-box">
+               
+               <input type="text" id="username" name="username" class="form-input" required>
+               <label for="username" class="form-label">Enter Email ID</label>
+            </div>
+            
+            <div class="forgot-password-flexbox">
+                <a class="forgot-password-link blue-text" href="signup.html">Forgot Password?</a>
+                <a class="mobile-link" href="mobile-login.html">Use Mobile Number</a>        
+            </div>
+            <button type="submit" class="btn text-center text-white">Sign in</button>
+        </form>
+        
+    </div>
+    
+    <div class="footer-wrapper text-center">
+        <a href="#" class="footer-item border-r">Terms of Service</a>
+        <a href="#" class="footer-item">Privacy Policy</a><br>
+        <span class="footer-item">Copyright @2020 Jass-Sangha. All rights reserved.</span>
+    </div>
+    </div>
+    <!-- <div><?php echo $error; ?></div> -->
+    <script src="script.js"></script>
+</body>
+
+</html>

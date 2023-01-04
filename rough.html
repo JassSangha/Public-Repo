@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <STYLE>
+        .textbox{
+            height:30px;
+            width:100%;
+            color: grey;
+            padding-top:20px;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        .label-name{
+            position:absolute;
+            bottom:0px;
+            top:0px;
+            padding:0px 2px 0px 2px;
+            height:30px;
+            width:100%;
+            pointer-events:none;
+        }
+        .span-name{
+            position:absolute;
+            bottom:-15px;
+            transition: all 0.3s ease;
+        }
+        .textbox:focus + .label-name .span-name,
+        .textbox:valid + .label-name .span-name  { /* add new selector here */
+            /* transform: translateY(-150%); */
+            font-size: 13px;
+            color: #5fa8d3;
+        }
+
+        .textbox:focus, .textbox:valid{
+            box-shadow:none;
+            outline:none;
+        }
+        
+
+        .textbox:focus + .label-name::after,
+        .textbox:valid + .label-name .span-name::after {
+            transform:translateY(0%);
+        }
+    </STYLE>
+</head>
+<body>
+    <div class="main">
+        <input class="textbox" type="text" required/>
+        <label class="label-name">
+            <span class="span-name">Name</span>
+        </label>
+    </div>
+</body>
+</html>

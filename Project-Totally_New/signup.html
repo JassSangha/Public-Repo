@@ -49,41 +49,48 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binance</title>
-    <link rel="stylesheet" href="../../Css/Login/signup.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="main">
         <div class="header text-center">
-            <a href="login.html"><img src="../../Images/small_logo.png"></a>
+            <img src="small_logo.png">
             <div class="tagline">Welcome to Binance</div>
         </div>
 
         <form class="login-form" name="login_form">
             <span class="form-title">Please enter the following :</span>
-            <div>
-                <div class="flex name-flex">
-                    <div class="input-box">
-                        <input type="text" id="firstname" name="firstname" class="form-input" required>
-                        <label for="firstname" class="form-label">First Name</label>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" id="lastname" name="lastname" class="form-input" required>
-                        <label for="lastname" class="form-label">Last Name</label>
-                    </div>
-                </div>
-                <div class="input-box">
-                    <input type="text" id="username" name="username" class="form-input" required>
-                    <label for="username" class="form-label">Email or Phone</label>
-                </div>
-                <div class="input-box">
-                    <input type="password" class="form-input" name="userpassword" id="userpassword" required>
-                    <label for="userpassword" class="password-div_item1 form-label">New Password</label>
-                </div>
-                <button type="button" id="eye" onclick="togglepassword()">&nbsp<img class="img"
-                    src="../../Images/small_logo.png" alt=""></button>
+            
+            <div class="input-box">
+                <input type="text" id="name" name="name" class="form-input" required>
+                <label for="name" class="form-label">Name</label>
             </div>
-                <button id="submit" type="submit" value="Next" name="submit" class="btn text-center text-white">Next</button>
+
+            <div class="input-box">
+                <input type="text" id="username" name="username" class="form-input" required>
+                <label for="username" class="form-label">Email or Phone</label>
+            </div>
+
+            <div class="input-box">
+                <input type="password" class="form-input" name="userpassword" id="userpassword" required>
+                <label for="userpassword" class="password-div_item1 form-label">New Password</label>
+            </div>
+            <div class="gender-flexbox">
+                <input type="radio" name="gender" id="gender-male" required>
+                <label class='gender-label' for="gender-male">Male</label>
+            
+                <input type="radio" name="gender" id="gender-female" required>
+                <label class='gender-label' for="gender-female">Female</label>
+            
+                <input type="radio" name="gender" id="gender-other" required>
+                <label class='gender-label' for="gender-other">Other</label>
+            </div>
+            <button type="button" id="eye" onclick="togglepassword()">&nbsp<img class="img"
+                src="small_logo.png" alt=""></button>
+                
+        
+            <button id="submit" type="submit" value="Next" name="submit" class="btn text-center text-white">Next</button>
         </form>
         
         

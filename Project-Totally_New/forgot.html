@@ -34,44 +34,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="Css\Login\login.css">
+    <link rel="stylesheet" href="../../Css/Login/login.css">
 </head>
 
 <body>
     <div class="main">
         <div class="header text-center">
-            <a href="signin.php"><img src="Images/small_logo.png"></a>
+            <a href="signin.php"><img src="../../Images/small_logo.png"></a>
             <div class="tagline">Sign in to Binance</div>
         </div>
 
         <form action="" method="post" class="login-form grid">
-            <div>
-                <label for="username" class="form-label">Email or Phone</label>
-                <input type="text" id="username" name="username" class="form-input" required>
-
+           <div class="input-box">
+               
+               <input type="text" id="username" name="username" class="form-input" required>
+               <label for="username" class="form-label">Email or Phone</label>
+            </div>
+               
+            <div class="input-box">
+                <input type="password" class="form-input" name="userpassword" id="userpassword" required>
                 <label for="userpassword" class="password-div_item1 form-label">Password</label>
-                <input type="password" class="form-input" name="userpassword" id="userpassword" placeholder="Password"
-                    required>
-                <button type="button" id="eye" onclick="togglepassword()">&nbsp<img class="password-hider-img"
-                        src="Images/small_logo.png" alt=""></button>
-                <div class="links">
-                    <div>
-                        <input type="checkbox" name="remember_me" id="remember_me"> <label id="remember_me"
-                            for="remember_me">Remember me</label>
-                    </div>
-                    <a class="password-div_item2 forgot-password_link link" href="signup.html">Forgot Password?</a>
+            </div>
+                 
+            <button type="button" id="eye" onclick="togglepassword()">&nbsp<img class="password-hider-img"
+                src="../../Images/small_logo.png" alt=""></button>
+            <!-- <div class="links">
+                <div>
+                    <input type="checkbox" name="remember_me" id="remember_me"> 
+                    <label id="remember_me" for="remember_me">Remember me</label>
                 </div>
-                <button type="submit" class="btn text-center text-white">Sign in</button>
-            </div>
-    </div>
+            </div> -->
+            <button type="submit" class="btn text-center text-white">Sign in</button>
+        </form>
+        <form class="login-form2 grid">
+            <div class="text-center">
+                <div class="questions">Don't remember password?
+                    <a class="questions-link blue-text" href="signup.html">Forgot Password?</a>
+                </div>
 
-    </form>
-    <form class="login-form2 grid">
-        <div class="text-center">
-            <div class="create-account_question mb-6">Don't have an account?</div>
-            <div class="create-account_link">
-                <a href="signup.php" class="green-text">Create account</a>
-            </div>
+                <div class="questions">Don't have an account?
+                    <a href="signup.php" class=" questions-link green-text">Create account</a>
+                </div>
         </div>
         </div>
     </form>
@@ -82,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     </div>
     <!-- <div><?php echo $error; ?></div> -->
-    <script src="Js/login.js"></script>
+    <script src="../../Js/login.js"></script>
 </body>
 
 </html>

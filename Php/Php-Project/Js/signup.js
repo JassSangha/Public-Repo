@@ -16,7 +16,7 @@ function togglepassword() {
   } else {
     x.type = "password";
   }
-} 
+}
 
 // 1 Min Countdown
 let second = 5;

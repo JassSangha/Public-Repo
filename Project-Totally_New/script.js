@@ -46,7 +46,7 @@ function timer() {
     clearInterval(cron);
     second = 5;
     document.querySelector('#second').textContent = "";
-    document.querySelector('#otp-btn').textContent = "Resend";
+    document.querySelector('#otp-btn').textContent = "Resend OTP";
     document.getElementById("timer").innerHTML = "";
   }
   function returnData(input) {
@@ -65,8 +65,7 @@ function validateOnlyNumbers(phone) {
 }
 
 const input = document.getElementById("username");
-input.classList.remove('form-input')
-input.classList.add('form-input-error')
+
 input.addEventListener("keyup", e => {
   const value = e.target.value;
 
